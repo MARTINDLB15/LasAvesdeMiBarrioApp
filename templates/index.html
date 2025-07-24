@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block main %}
+<section class="intro">
+    <p style="text-align: justify;">
+    El avistamiento de aves es una herramienta poderosa para la conservación.
+    Al conocer las especies de un lugar, entendemos su rol y la necesidad de proteger su hábitat.
+    Las aves cumplen funciones vitales en los ecosistemas, como dispersar semillas, controlar plagas y polinizar.
+    Colombia, país con la mayor diversidad de aves del mundo, es un destino clave para promover conciencia ambiental, ciencia ciudadana y turismo responsable.
+    Observar aves no solo conecta a las personas con la naturaleza, sino que fortalece el compromiso por cuidar los territorios que ellas habitan.
+    </p>
+</section>
+
+<figure>
+    <img src="{{ url_for('static', filename='ave_muestra.jpg') }}" alt="Ave destacada">
+</figure>
+<style>
+section.indexf {
+            padding: 2rem;
+            background-color: #eaf5ea;
+            text-align: center;
+        }
+        section.indexf p {
+            max-width: 800px;
+            margin: auto;
+        }
+</style>
+<section class="indexf">
+ <p>Avistar un ave te conecta con la naturaleza</p>
+{% endblock %}
