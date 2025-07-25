@@ -53,13 +53,11 @@ def explora():
 def conoce():
     return render_template ('conoce.html')
 
-@app.route('/eliminar/<int:id>', methods=['POST'])
-def eliminar(id):
-    conn = get_db_connection()  # o el método que uses
-    conn.execute('DELETE FROM aves WHERE id = ?', (id,))
-    conn.commit()
-    conn.close()
-    return redirect('/explora')
+@app.route('/eliminar/<int:indice>', methods=['POST'])
+def eliminar(indice):
+    if 0 <= indice < len(lista_registros):
+        del lista_registros[indice]
+    return redirect(url_for('explora'))
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block main %}
+<h3>Explora tus registros</h3>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,32 +9,27 @@
     <title>Explora</title>
 </head>
 <body>
-    <h1>Explora tus registros</h1>
-
-    {% if registros %}
+        {% if registros %}
         {% for registro in registros %}
+        
             <div>
-                <p><strong>Nombre completo:</strong> {{ registro.nombre_completo }}</p>
+                                <p><strong>Nombre completo:</strong> {{ registro.nombre_completo }}</p>
                 <p><strong>Nombre común:</strong> {{ registro.nombre_comun }}</p>
                 <p><strong>Nombre científico:</strong> <i>{{ registro.nombre_cientifico }}</i></p>
                 <p><strong>Comentario:</strong> {{ registro.comentario }}</p>
                 {% if registro.imagen %}
                     <img src="{{ url_for('static', filename=registro.imagen) }}" alt="Imagen del ave" width="300">
                 {% endif %}
+        <form action="{{ url_for('eliminar', indice=loop.index0) }}" method="post" style="display:inline;">
+            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</button>
+        </form>
                 <hr>
             </div>
-        {% endfor %}
+       {% endfor %}
     {% else %}
         <p>No hay registros aún.</p>
     {% endif %}
-{% for ave in aves %}
-  <form action="/eliminar/{{ ave.id }}" method="post" style="display:inline;">
-    <button type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar este registro?')">
-        Eliminar
-    </button>
-</form>
-</div>
-{% endfor %}
+
 
 <p>Explorar las aves del barrio te conecta con la naturaleza</p>
 {% endblock %}

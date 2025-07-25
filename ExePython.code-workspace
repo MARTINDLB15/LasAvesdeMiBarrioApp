@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../Users/Martin Londoño/Desktop/ExePython"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python-envs.pythonProjects": [
+			{
+				"path": "app.py",
+				"envManager": "ms-python.python:venv",
+				"packageManager": "ms-python.python:pip",
+				"workspace": "Piloto1"
+			}
+		]
+	}
+}
