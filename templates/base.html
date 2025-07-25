@@ -16,14 +16,14 @@
             padding: 1.5rem;
             text-align: center;
         }
-        nav {
+        form {
             background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             gap: 1rem;
             padding: 1rem;
         }
-        nav button {
+        form button {
             background-color: #5a8f5a;
             color: white;
             border: none;
@@ -31,7 +31,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        nav button:hover {
+        form button:hover {
             background-color: #4c7f4c;
         }
         section.intro {
@@ -57,13 +57,29 @@
 
 <header>
     <h1>LAS AVES DEL BARRIO PARQUES DE LA ITALIA - PALMIRA, COLOMBIA</h1>
+     <p class="nombre-izquierda">Desarrollado por Martin Londoño Behaine</p>
 </header>
-
-<nav>
-    <button>Guía de avistamiendo y registro</button>
-    <button>Regístra tu avistamiendo</button>
-    <button>Explora los registros</button>
-    <button>Conoce más sobre aves</button>
-</nav>
-{% block main %}
+<style>
+  .nav-buttons {
+    display: flex;
+    gap: 10px; /* Espacio entre botones */
+    justify-content: center; /* Centrado horizontal (opcional) */
+    margin: 20px 0;
+  }
+</style>
+<div class="nav-buttons">
+    <form action="{{ url_for('guia') }}">
+        <button type="submit">Guía de avistamiendo y registro</button>
+    </form>
+        <form action="{{ url_for('registro') }}">
+        <button type="submit">Regístra tu avistamiendo</button>
+    </form>
+        <form action="{{ url_for('explora') }}">
+        <button type="submit">Explora los registros</button>
+    </form>
+        <form action="{{ url_for('conoce') }}">
+        <button type="submit">Conoce más sobre aves</button>
+    </form>
+    </div>
+   {% block main %}
 {% endblock %}

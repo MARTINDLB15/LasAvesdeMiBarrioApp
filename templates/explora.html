@@ -1,5 +1,31 @@
 {% extends "base.html" %}
 
 {% block main %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Explora</title>
+</head>
+<body>
+    <h1>Explora tus registros</h1>
+
+    {% if registros %}
+        {% for registro in registros %}
+            <div>
+                <p><strong>Nombre completo:</strong> {{ registro.nombre_completo }}</p>
+                <p><strong>Nombre común:</strong> {{ registro.nombre_comun }}</p>
+                <p><strong>Nombre científico:</strong> <i>{{ registro.nombre_cientifico }}</i></p>
+                <p><strong>Comentario:</strong> {{ registro.comentario }}</p>
+                {% if registro.imagen %}
+                    <img src="{{ url_for('static', filename=registro.imagen) }}" alt="Imagen del ave" width="300">
+                {% endif %}
+                <hr>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No hay registros aún.</p>
+    {% endif %}
+
 <p>Explorar las aves del barrio te conecta con la naturaleza</p>
 {% endblock %}

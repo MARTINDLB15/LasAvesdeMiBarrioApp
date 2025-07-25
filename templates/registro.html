@@ -1,19 +1,15 @@
 {% extends "base.html" %}
 
 {% block main %}
-<style>
-section.registro {
-            padding: 2rem;
-            background-color: #eaf5ea;
-            text-align: center;
-        }
-        section.registro p {
-            max-width: 800px;
-            margin: auto;
-        }
-</style>
-<section class="registro">
-<p>Registrate y vamos avistar las aves del barrio</p>
-</section>
+<h3>Registra el ave que observaste</h3>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<form action="{{ url_for('registro') }}" method="POST" enctype="multipart/form-data">
+    <input type="text" name="nombre_completo" placeholder="Tu nombre completo" required>
+    <input type="text" name="nombre_comun" placeholder="Nombre común del ave" required>
+    <input type="text" name="nombre_cientifico" placeholder="Nombre científico del ave" required>
+    <input type="file" name="imagen">
+    <textarea name="comentario" placeholder="Cuéntanos tu experiencia de avistamiento"></textarea>
+    <button type="submit">Registra</button>
+</form>
 
 {% endblock %}
