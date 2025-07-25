@@ -5,6 +5,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -20,6 +23,7 @@ form {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    justify-content: center;
 }
 
 label {
@@ -61,3 +65,61 @@ button:hover {
     font-weight: bold;
     color: white;
 }
+
+header {
+    background-color: #3c7e3c;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    }
+
+form button {
+    background-color: #5a8f5a;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+form button:hover {
+    background-color: #4c7f4c;
+    }
+
+section.intro {
+    padding: 2rem;
+    background-color: #eaf5ea;
+    text-align: center;
+    }
+section.intro p {
+    max-width: 800px;
+    margin: auto;
+    }
+figure {
+    text-align: center;
+    margin: 2rem 0;
+    }
+figure img { max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    }
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: nowrap; /* Importante: evita que se vayan a una segunda fila */
+  }
+.nav-buttons button {
+    background-color: #5a8f5a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+.nav-buttons button:hover {
+    background-color: #4c7f4c;
+  }

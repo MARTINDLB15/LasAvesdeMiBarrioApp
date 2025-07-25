@@ -1,57 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <head>
     <meta charset="UTF-8">
     <title>Aves del Barrio Parques de la Italia</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #3c7e3c;
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        form {
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1rem;
-        }
-        form button {
-            background-color: #5a8f5a;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #4c7f4c;
-        }
-        section.intro {
-            padding: 2rem;
-            background-color: #eaf5ea;
-            text-align: center;
-        }
-        section.intro p {
-            max-width: 800px;
-            margin: auto;
-        }
-        figure {
-            text-align: center;
-            margin: 2rem 0;
-        }
-        figure img { max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 <body>
 
@@ -59,27 +11,13 @@
     <h1>LAS AVES DEL BARRIO PARQUES DE LA ITALIA - PALMIRA, COLOMBIA</h1>
      <p class="nombre-izquierda">Desarrollado por Martin Londoño Behaine</p>
 </header>
-<style>
-  .nav-buttons {
-    display: flex;
-    gap: 10px; /* Espacio entre botones */
-    justify-content: center; /* Centrado horizontal (opcional) */
-    margin: 20px 0;
-  }
-</style>
+
 <div class="nav-buttons">
-    <form action="{{ url_for('guia') }}">
-        <button type="submit">Guía de avistamiendo y registro</button>
-    </form>
-        <form action="{{ url_for('registro') }}">
-        <button type="submit">Regístra tu avistamiendo</button>
-    </form>
-        <form action="{{ url_for('explora') }}">
-        <button type="submit">Explora los registros</button>
-    </form>
-        <form action="{{ url_for('conoce') }}">
-        <button type="submit">Conoce más sobre aves</button>
-    </form>
+    <a href="{{ url_for('guia') }}"><button type="button">Guía de avistamiento y registro</button></a>
+    <a href="{{ url_for('registro') }}"><button type="button">Registra tu avistamiento</button></a>
+    <a href="{{ url_for('explora') }}"><button type="button">Explora los registros</button></a>
+    <a href="{{ url_for('conoce') }}"><button type="button">Conoce más sobre aves</button></a>
+</div>
     </div>
    {% block main %}
 {% endblock %}
