@@ -26,6 +26,17 @@
     {% else %}
         <p>No hay registros aún.</p>
     {% endif %}
+{% for ave in aves %}
+  <div>
+    <p>Nombre: {{ ave.nombre }}</p>
+    <p>Ubicación: {{ ave.ubicacion }}</p>
+<form action="/eliminar/{{ ave.id }}" method="post" style="display:inline;">
+    <button type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar este registro?')">
+        Eliminar
+    </button>
+</form>
+</div>
+{% endfor %}
 
 <p>Explorar las aves del barrio te conecta con la naturaleza</p>
 {% endblock %}
