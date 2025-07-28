@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename 
 
@@ -6,6 +7,21 @@ app = Flask(__name__)
 
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+REGISTROS_FILE = 'registros.json'
+
+def cargar_registros():
+    if os.path.exists(REGISTROS_FILE):
+        with open(REGISTROS_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return []
+
+def guardar_registros(lista):
+    with open(REGISTROS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(lista, f, ensure_ascii=False, indent=2)
+
+# Cargar registros al iniciar
+lista_registros = cargar_registros()
 
 
 @app.route('/')
@@ -17,7 +33,6 @@ def index():
 def guia():
     return render_template ('guia.html')
 
-lista_registros = []
 @app.route('/registro',  methods=['GET', 'POST'])
 def registro():
     if request.method == 'POST':
@@ -29,18 +44,22 @@ def registro():
 
         ruta_imagen = None
         if imagen and imagen.filename != '':
-            nombre_archivo = imagen.filename
+            nombre_archivo = secure_filename(imagen.filename)
             ruta_absoluta = os.path.join(UPLOAD_FOLDER, nombre_archivo)
             imagen.save(ruta_absoluta)
             ruta_imagen = f'uploads/{nombre_archivo}'
         
-        lista_registros.append({
+        nuevo_registro = {
             'nombre_completo': nombre_completo,
             'nombre_comun': nombre_comun,
             'nombre_cientifico': nombre_cientifico,
             'comentario': comentario,
             'imagen': ruta_imagen
-        })
+        }
+
+        lista_registros.append(nuevo_registro)
+        guardar_registros(lista_registros)
+
         return redirect(url_for('explora'))
 
     return render_template ('registro.html')
@@ -57,6 +76,7 @@ def conoce():
 def eliminar(indice):
     if 0 <= indice < len(lista_registros):
         del lista_registros[indice]
+        guardar_registros(lista_registros)
     return redirect(url_for('explora'))
 
 if __name__ == '__main__':

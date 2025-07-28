@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h3>Explora tus registros</h3>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<h3 class="exposicion1">Explora tus registros</h3>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,24 +13,23 @@
         {% if registros %}
         {% for registro in registros %}
         
-            <div>
-                                <p><strong>Nombre completo:</strong> {{ registro.nombre_completo }}</p>
+        <div class="exposicion2">
+                <p><strong>Nombre completo:</strong> {{ registro.nombre_completo }}</p>
                 <p><strong>Nombre común:</strong> {{ registro.nombre_comun }}</p>
                 <p><strong>Nombre científico:</strong> <i>{{ registro.nombre_cientifico }}</i></p>
                 <p><strong>Comentario:</strong> {{ registro.comentario }}</p>
                 {% if registro.imagen %}
-                    <img src="{{ url_for('static', filename=registro.imagen) }}" alt="Imagen del ave" width="300">
+                <img src="{{ url_for('static', filename=registro.imagen) }}" alt="Imagen del ave" width="300">
                 {% endif %}
-        <form action="{{ url_for('eliminar', indice=loop.index0) }}" method="post" style="display:inline;">
-            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</button>
-        </form>
+                <form action="{{ url_for('eliminar', indice=loop.index0) }}" method="post" style="display:inline;">
+                    <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</button>
+                </form>
                 <hr>
             </div>
        {% endfor %}
     {% else %}
-        <p>No hay registros aún.</p>
+        <p class="exposicion3">No hay registros aún.</p>
     {% endif %}
 
 
-<p>Explorar las aves del barrio te conecta con la naturaleza</p>
 {% endblock %}

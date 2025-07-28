@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <head>
     <meta charset="UTF-8">
-    <title>Aves del Barrio Parques de la Italia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Aves de mi Barrio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
 
-<header>
-    <h1>LAS AVES DEL BARRIO PARQUES DE LA ITALIA - PALMIRA, COLOMBIA</h1>
-     <p class="nombre-izquierda">Desarrollado por Martin Londoño Behaine</p>
-</header>
-
-<div class="nav-buttons">
-    <a href="{{ url_for('guia') }}"><button type="button">Guía de avistamiento y registro</button></a>
-    <a href="{{ url_for('registro') }}"><button type="button">Registra tu avistamiento</button></a>
-    <a href="{{ url_for('explora') }}"><button type="button">Explora los registros</button></a>
-    <a href="{{ url_for('conoce') }}"><button type="button">Conoce más sobre aves</button></a>
+<body class="contenedor-relativo">
+    <header>
+    <h1>LAS AVES DEL BARRIO PARQUES DE LA ITALIA<br>PALMIRA, COLOMBIA</h1>
+    <p>Desarrollado por Martin Londoño Behaine</p>
+    </header>
+    <main>
+    <h2 class="titabajo">LAS AVES<br>DE MI BARRIO</h2>
+    <div class="nav-buttons">
+    <a href="{{ url_for('index') }}" class="nav-btn">Inicio</a>
+    <a href="{{ url_for('guia') }}" class="nav-btn">Guía de avistamiento y registro</a>
+    <a href="{{ url_for('registro') }}" class="nav-btn">Registra tu avistamiento</a>
+    <a href="{{ url_for('explora') }}" class="nav-btn">Explora los registros</a>
+    <a href="{{ url_for('conoce') }}" class="nav-btn">Conoce más sobre aves</a>
 </div>
-    </div>
+</main>
+</body>
    {% block main %}
 {% endblock %}
