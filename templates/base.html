@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Las Aves de mi Barrio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
 </head>
 
-<body class="contenedor-relativo">
-    <header>
+    <header class="header">
     <h1>LAS AVES DEL BARRIO PARQUES DE LA ITALIA<br>PALMIRA, COLOMBIA</h1>
     <p>Desarrollado por Martin Londoño Behaine</p>
     </header>
+    <body>
     <main>
     <h2 class="titabajo">LAS AVES<br>DE MI BARRIO</h2>
     <div class="nav-buttons">
@@ -21,7 +22,11 @@
     <a href="{{ url_for('explora') }}" class="nav-btn">Explora los registros</a>
     <a href="{{ url_for('conoce') }}" class="nav-btn">Conoce más sobre aves</a>
 </div>
+{% block main %} {% endblock %}
 </main>
+
+<footer class="footer">
+        <p>&copy; 2025 Las Aves de Mi Barrio</p>
+    </footer>
 </body>
-   {% block main %}
-{% endblock %}
+</html>

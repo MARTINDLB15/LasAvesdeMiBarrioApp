@@ -5,6 +5,12 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+def allowed_file(filename):
+    return '.' in filename and \
+    filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -41,14 +47,14 @@ def registro():
         nombre_cientifico = request.form.get('nombre_cientifico')
         comentario = request.form.get('comentario')
         imagen = request.files.get('imagen')
-
+        
         ruta_imagen = None
-        if imagen and imagen.filename != '':
+        if imagen and allowed_file(imagen.filename):
             nombre_archivo = secure_filename(imagen.filename)
             ruta_absoluta = os.path.join(UPLOAD_FOLDER, nombre_archivo)
             imagen.save(ruta_absoluta)
             ruta_imagen = f'uploads/{nombre_archivo}'
-        
+
         nuevo_registro = {
             'nombre_completo': nombre_completo,
             'nombre_comun': nombre_comun,
@@ -66,7 +72,8 @@ def registro():
 
 @app.route('/explora')
 def explora():
-    return render_template ('explora.html', registros=lista_registros)
+    registros = cargar_registros()
+    return render_template('explora.html', registros=registros)
 
 @app.route('/conoce')
 def conoce():
@@ -74,10 +81,12 @@ def conoce():
 
 @app.route('/eliminar/<int:indice>', methods=['POST'])
 def eliminar(indice):
+    registros = cargar_registros()
     if 0 <= indice < len(lista_registros):
         del lista_registros[indice]
         guardar_registros(lista_registros)
     return redirect(url_for('explora'))
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

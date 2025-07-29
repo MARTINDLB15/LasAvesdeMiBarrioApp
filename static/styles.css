@@ -6,6 +6,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+
 }
 
 main {
@@ -14,6 +15,13 @@ main {
     justify-content: center;
     align-items: center;
 }
+
+.contenedor-principal {
+    max-width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
 .contenedor-relativo {
     position: relative;
     width: 100%;
@@ -127,7 +135,8 @@ figure img {
     border-radius: 0.5rem;
     text-decoration: none;
     font-size: 1.2rem;
-    width: 15rem;
+    width: 100%;
+    max-width: 15rem;
     transition: background-color 0.3s ease;
 }
 
@@ -235,22 +244,29 @@ figure img {
     width: 31.25rem;
 }
 
-@media (max-width: 768px) {
-    .titarriba {
-        font-size: 1.8rem;
-        top: 3%;
-        left: 3%;
+@media (max-width: 600px) {
+    header h1, header p {
+        text-align: center;
+        font-size: 1rem;
     }
 
-    .formulario-registro,
-    .exposicion2 {
-        width: 95%;
-        margin: 1.5rem auto;
+    .titabajo {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .formulario-registro {
+        width: 100%;
         padding: 1rem;
     }
 
-    .alabriregistro,
-    .exposicion1 {
-        font-size: 1.5rem;
+    .nav-buttons {
+        align-items: center;
+    }
+
+    .nav-btn {
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
     }
 }
+
