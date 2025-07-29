@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "nombre_completo": "Martin Londoño",
+    "nombre_comun": "Canario",
+    "nombre_cientifico": "Serinus canaria",
+    "comentario": "asdasd",
+    "imagen": "uploads/IMG_4051-4-1024x768.jpg"
+  },
+  {
+    "nombre_completo": "Martin Londoño",
+    "nombre_comun": "Turpial",
+    "nombre_cientifico": "Tupis aves",
+    "comentario": "dfds",
+    "imagen": "uploads/Imagen_de_WhatsApp_2025-07-24_a_las_12.59.41_bd8f8209.jpg"
+  }
+]

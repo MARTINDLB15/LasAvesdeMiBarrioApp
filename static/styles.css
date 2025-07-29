@@ -9,24 +9,12 @@ body {
 
 }
 
-main {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenedor-principal {
-    max-width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
 .contenedor-relativo {
     position: relative;
     width: 100%;
     min-height: 100vh;
 }
+
 header {
     position: fixed;
     top: 0;
@@ -35,10 +23,25 @@ header {
     z-index: 10;
     color: white;
     font-weight: bold;
-    text-align: lef;
+    text-align: left;
     text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.966);
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7rem;
+}
+
+.contenedor-principal {
+    max-width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .titabajo {
@@ -46,28 +49,19 @@ header {
     font-weight: bold;
     text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.966);
     font-size: 3rem;
-    position: fixed;
-    top: 20.75rem;
-    right: 4.25rem;
     text-align: center;
-    margin-left: 1.875rem;
-    margin-top: 2.5rem;
 }
 
 .formulario-registro {
     display: flex;
     flex-direction: column;
-    width: 18.75rem;
+    width: 100%;
+    max-width: 400px;
     gap: 0.75rem;
     background: #ffffff;
     padding: 1.25rem;
     border-radius: 0.625rem;
     box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
-    justify-content: center;
-    position: absolute;
-    top: 15rem;
-    right: 30rem;
-    width: 31.25rem;
 }
 
 label {
@@ -83,10 +77,53 @@ textarea {
     border-radius: 0.3125rem;
     font-size: 0.875rem;
 }
-
 textarea {
     resize: vertical;
 }
+
+.nav-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.nav-btn {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0.125rem 0.125rem 0.3125rem rgb(0, 0, 0);
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover {
+    background-color: rgba(100, 100, 100, 0.3);
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    background-color: rgba(100, 100, 100, 0.3);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
+    width: 50%;
+    max-width: 800px;
+    padding: 1rem;
+    margin: 15rem auto 0;
+    border-radius: 2rem;
+    }
 
 .nombre-izquierda {
     text-align: left;
@@ -117,49 +154,7 @@ figure img {
     border-radius: 0.625rem;
 }
 
-.nav-buttons {
-    position: absolute;
-    top: 15rem;
-    left: 0rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
 
-.nav-btn {
-    display: inline-block;
-    color: white;
-    font-weight: bold;
-    text-shadow: 0.125rem 0.125rem 0.3125rem rgb(0, 0, 0);
-    padding: 0.8rem 1.5rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-size: 1.2rem;
-    width: 100%;
-    max-width: 15rem;
-    transition: background-color 0.3s ease;
-}
-
-.nav-btn:hover {
-    background-color: rgba(100, 100, 100, 0.3);
-}
-
-.intro {
-    position: absolute;
-    top: 65%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    text-align: justify;
-    text-justify: inter-word;
-    background-color: rgba(100, 100, 100, 0.3);
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
-    width: 25.25rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-}
 .lodelaguia {
     text-align: center;
     text-justify: inter-word;
@@ -174,74 +169,76 @@ figure img {
     width: 31.25rem;
 }
 .alabriregistro {
-    text-align: center;
-    text-justify: inter-word;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
     background-color: rgba(100, 100, 100, 0.3);
     color: white;
-    font-size: 2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
-    position: absolute;
-    top: 10rem;
-    right: 31.2rem;
-    width: 31.25rem;
+    width: 50%;
+    max-width: 800px;
+    padding: 1rem;
+    margin: 0% auto 0;
+    border-radius: 2rem;
 }
 
 .exposicion1 {
-    text-align: center;
-    text-justify: inter-word;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
     background-color: rgba(100, 100, 100, 0.3);
     color: white;
-    font-size: 2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
-    position: absolute;
-    top: 10rem;
-    right: 31.2rem;
-    width: 31.25rem;
+    width: 50%;
+    max-width: 800px;
+    padding: 1rem;
+    margin: 10% auto 0;
+    border-radius: 2rem;
 }
 
 .exposicion2 {
   background-color: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  max-width: 600px;
+  max-width: 400px;
   margin-left: auto;
   margin-right: auto;
-  position: absolute;
-  top: 15rem;
-  right: 31.2rem;
-  width: 31.25rem;
+  width: 30%;
+}
+
+.exposicion2 img {
+    margin-top: 1rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    align-items: center;
+}
+.exposicion3 {
+    text-align: center;
+    color: #ccc;
 }
 
 .btn-eliminar {
-  margin-top: 10px;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 5px;
-  cursor: pointer;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #a7a6a6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn-eliminar:hover {
-  background-color: #c82333;
-}
-
-.exposicion3 {
-    text-align: center;
-    text-justify: inter-word;
-    background-color: rgba(100, 100, 100, 0.3);
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
-    position: absolute;
-    top: 14rem;
-    right: 31.2rem;
-    width: 31.25rem;
+    background-color: #a93226;
 }
 
 @media (max-width: 600px) {
