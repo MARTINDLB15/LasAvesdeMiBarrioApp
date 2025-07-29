@@ -86,7 +86,7 @@ textarea {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 0.3rem;
     margin-top: 1rem;
 }
 
@@ -121,7 +121,7 @@ textarea {
     width: 50%;
     max-width: 800px;
     padding: 1rem;
-    margin: 15rem auto 0;
+    margin: 0rem auto 0;
     border-radius: 2rem;
     }
 
@@ -160,7 +160,7 @@ figure img {
     text-justify: inter-word;
     background-color: rgba(100, 100, 100, 0.3);
     color: white;
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
     position: absolute;
@@ -175,11 +175,11 @@ figure img {
     text-align: justify;
     background-color: rgba(100, 100, 100, 0.3);
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
     width: 50%;
-    max-width: 800px;
+    max-width: 25rem;
     padding: 1rem;
     margin: 0% auto 0;
     border-radius: 2rem;
@@ -192,11 +192,11 @@ figure img {
     text-align: justify;
     background-color: rgba(100, 100, 100, 0.3);
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
     width: 50%;
-    max-width: 800px;
+    max-width: 30rem;
     padding: 1rem;
     margin: 10% auto 0;
     border-radius: 2rem;
@@ -208,11 +208,11 @@ figure img {
   margin-bottom: 2rem;
   border-radius: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  max-width: 400px;
+  max-width: 30rem;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
-}
+  width: 60%;
+  }
 
 .exposicion2 img {
     margin-top: 1rem;
