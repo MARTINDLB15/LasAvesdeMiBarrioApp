@@ -1,6 +1,91 @@
 {% extends "base.html" %}
 
 {% block main %}
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-<p class="lodelaguia">Esta es una guia para el uso de la pagina</p>
+<!DOCTYPE html>
+<html lang="es">
+<body>
+
+    <div class="carousel-container">
+    <div class="arrow left" onclick="previousSlide()">&#x25C0</div>
+    <div class="slide active">
+      <div class="text-box">
+        El avistamiento de aves puede ser un ejercicio cotidiano.<br> Sin embargo, para que sea un ejercicio con sentido, y lograr los propósitos académicos y ambientales que buscamos con Aves de mi Barrio, te presentamos la siguiente guía.
+      </div>
+      <img src="{{ url_for('static', filename='fotoS0.png') }}" alt="Ave 2">
+    </div>
+
+    <div class="slide">
+      <img src="{{ url_for('static', filename='fotoS1.png') }}" alt="Ave 1">
+      <div class="text-box">
+    🌱Durante el ejercicio de avistamiento, es fundamental practicar y transmitir estos valores:<br><br>
+      • Respeto: hacia las aves, su entorno y las personas que nos acompañan. Evita hacer ruidos fuertes, tocar nidos o alterar su comportamiento.<br>
+      • Paciencia: muchas veces las aves no aparecen de inmediato. Esperar con calma es parte de la experiencia.<br>
+      • Empatía: recuerda que las aves son seres vivos que merecen cuidado y tranquilidad. Observamos sin invadir.
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="{{ url_for('static', filename='fotoS2.png') }}" alt="Ave 2">
+      <div class="text-box">
+    ⏰¿Cuándo es mejor observar aves?<br>
+        Los mejores horarios para el avistamiento son:<br>
+      • Temprano en la mañana: entre las 6:00 a.m. y las 9:00 a.m., cuando las aves están más activas buscando alimento.<br>
+      •	Final de la tarde: entre las 4:00 p.m. y las 6:00 p.m., en especial en zonas tranquilas.<br><br>
+        Evita las horas de sol intenso, ya que las aves suelen refugiarse.
+      </div>
+    </div>
+ 
+    <div class="slide">
+      <img src="{{ url_for('static', filename='fotoS3.png') }}" alt="Ave 2">
+      <div class="text-box">
+        ¿Qué te recomendamos llevar?<br>
+Aquí te compartimos una lista de implementos básicos para disfrutar del avistamiento:<br><br>
+📸 Dispositivo para tomar fotos: puede ser un celular o una cámara sencilla.<br>
+📘 Guía de aves local: impresa o digital, te ayudará a identificar las especies.<br>
+📝 Cuaderno de notas o libreta de campo: para anotar la fecha, lugar, comportamiento y otros detalles.<br>
+🔭 Binoculares (opcional pero muy útiles): para ver detalles sin acercarte demasiado.<br><br>
+Consejo: lleva ropa cómoda y discreta, de colores neutros, y algo de agua para mantenerte hidratado.<br>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="{{ url_for('static', filename='fotoS4.png') }}" alt="Ave 2">
+      <div class="text-box">
+        📥 ¡No olvides registrar tu avistamiento!<br><br>
+Una vez finalizado el ejercicio, te invitamos a compartir tu observación en la pestaña “Registra tu avistamiento” que encontraras en la parte superior de la página.<br>
+Ten listo como mínimo:<br><br>
+🐤 Nombre común del ave (por ejemplo: azulejo).<br>
+🧬 Nombre científico (si lo sabes).<br>
+📷 Una fotografía clara del ave o de su silueta.<br>
+🙌 Escribe un comentario de la experiencia vivida durante el avistamiento.<br><br>
+Tu registro es un aporte valioso para conocer y conservar la biodiversidad de nuestro territorio.
+      </div>
+    </div>
+
+    <div class="arrow right" onclick="nextSlide()">➤</div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function previousSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+  </script>
+
+</body>
+</html>
 {% endblock %}

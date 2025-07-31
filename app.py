@@ -6,15 +6,15 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+UPLOAD_FOLDER = 'static/uploads'
+REGISTROS_FILE = 'registros.json'
+
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def allowed_file(filename):
     return '.' in filename and \
     filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-UPLOAD_FOLDER = 'static/uploads'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-REGISTROS_FILE = 'registros.json'
 
 def cargar_registros():
     if os.path.exists(REGISTROS_FILE):
@@ -25,10 +25,6 @@ def cargar_registros():
 def guardar_registros(lista):
     with open(REGISTROS_FILE, 'w', encoding='utf-8') as f:
         json.dump(lista, f, ensure_ascii=False, indent=2)
-
-# Cargar registros al iniciar
-lista_registros = cargar_registros()
-
 
 @app.route('/')
 @app.route('/index')
@@ -63,8 +59,9 @@ def registro():
             'imagen': ruta_imagen
         }
 
-        lista_registros.append(nuevo_registro)
-        guardar_registros(lista_registros)
+        registros = cargar_registros()
+        registros.append(nuevo_registro)
+        guardar_registros(registros)
 
         return redirect(url_for('explora'))
 

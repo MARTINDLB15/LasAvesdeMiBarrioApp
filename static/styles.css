@@ -27,6 +27,10 @@ header {
     text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.966);
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    background-image: url("/static/fondo_header.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 main {
@@ -35,21 +39,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 7rem;
-}
-
-.contenedor-principal {
-    max-width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-.titabajo {
-    color: white;
-    font-weight: bold;
-    text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.966);
-    font-size: 3rem;
-    text-align: center;
+    padding-top: 5rem;
 }
 
 .formulario-registro {
@@ -64,29 +54,12 @@ main {
     box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
 }
 
-label {
-    font-weight: bold;
-    color: #333;
-}
-
-input[type="text"],
-input[type="file"],
-textarea {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.3125rem;
-    font-size: 0.875rem;
-}
-textarea {
-    resize: vertical;
-}
-
 .nav-buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 0.3rem;
+    gap: 2.5rem;
     margin-top: 1rem;
 }
 
@@ -98,7 +71,7 @@ textarea {
     padding: 0.6rem 1.2rem;
     border-radius: 0.5rem;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     white-space: nowrap;
     transition: background-color 0.3s ease;
     background-color: rgba(0, 0, 0, 0.2);
@@ -124,14 +97,6 @@ textarea {
     margin: 0rem auto 0;
     border-radius: 2rem;
     }
-
-.nombre-izquierda {
-    text-align: left;
-    margin-left: 2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: white;
-}
 
 section.intro {
     padding: 2rem;
@@ -241,29 +206,169 @@ figure img {
     background-color: #a93226;
 }
 
-@media (max-width: 600px) {
-    header h1, header p {
-        text-align: center;
-        font-size: 1rem;
+.footer {
+    color: white;
+    text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.966);
+}
+
+    .carousel-container {
+      width: 80%;
+      margin: 0 auto;
+      overflow: hidden;
+      background-color: rgba(100, 100, 100, 0.3);
+      border-radius: 30px;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .titabajo {
-        font-size: 1.5rem;
-        text-align: center;
+    .slide {
+      display: none;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .formulario-registro {
-        width: 100%;
+    .slide.active {
+      display: flex;
+    }
+
+    .slide img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+    }
+    
+    .slide .text-box {
+      padding: 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      width: 50%;
+      max-width: 800px;
+      text-align: left;
+      text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
+      text-align: justify;
+      color: white;
+    }
+
+    .arrow.left {
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 60px;
+      cursor: pointer;
+      color: rgb(255, 191, 0);
+    }
+
+    .arrow.right {
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 60px;
+      cursor: pointer;
+      color: rgb(255, 191, 0);
+    }
+
+  .aves-section {
+  width: 50%;
+  max-width: 50rem;
+  margin: 8rem auto;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.aves-recurso {
+  margin-bottom: 1rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-left: 5px solid #2980b9;
+  border-radius: 8px;
+}
+
+.aves-recurso h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.aves-recurso a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.aves-recurso a:hover {
+  text-decoration: underline;
+}
+
+.aves-recurso p {
+  color: #444;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .intro, .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
+        width: 90%;
+        margin: 2rem auto;
         padding: 1rem;
+        font-size: 1rem;
     }
 
     .nav-buttons {
-        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .nav-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .carousel-container {
+        width: 95%;
+        flex-direction: column;
+    }
+
+    .slide {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .slide img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .slide .text-box {
+        width: 100%;
+        padding: 1rem;
         font-size: 1rem;
-        padding: 0.4rem 0.6rem;
+        text-align: justify;
+    }
+
+    .arrow.left,
+    .arrow.right {
+        font-size: 40px;
+        top: 95%;
+        transform: translateY(-50%);
+    }
+
+    .lodelaguia {
+        position: static;
+        width: 90%;
+        margin: 1rem auto;
+    }
+
+    .aves-recurso {
+        padding: 1rem;
     }
 }
-

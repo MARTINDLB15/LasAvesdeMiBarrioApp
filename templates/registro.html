@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 
 {% block main %}
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <h3 class="alabriregistro">Registra el ave que observaste</h3>
-<form class="formulario-registro"action="{{ url_for('registro') }}" method="POST" enctype="multipart/form-data">
+<form class="formulario-registro" action="{{ url_for('registro') }}" method="POST" enctype="multipart/form-data">
     <input type="text" name="nombre_completo" placeholder="Tu nombre completo" required>
     <input type="text" name="nombre_comun" placeholder="Nombre común del ave" required>
     <input type="text" name="nombre_cientifico" placeholder="Nombre científico del ave" required>
@@ -11,5 +10,4 @@
     <textarea name="comentario" placeholder="Cuéntanos tu experiencia de avistamiento"></textarea>
     <button type="submit">Registra</button>
 </form>
-
 {% endblock %}
