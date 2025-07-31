@@ -233,7 +233,7 @@ figure img {
 }
 
 .slide.active {
-    display: flex;
+ display: flex;
 }
 
 .slide img {
