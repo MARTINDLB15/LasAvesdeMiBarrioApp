@@ -237,9 +237,6 @@ figure img {
 }
 
 .slide img {
-  display: block;
-  max-width: 100%;
-  height: auto;
   width: 300px;
   height: auto;
   border-radius: 10px;
