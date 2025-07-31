@@ -233,13 +233,13 @@ figure img {
 }
 
 .slide.active {
- display: flex;
+    display: flex;
 }
 
 .slide img {
-  width: 300px;
-  height: auto;
-  border-radius: 10px;
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
 }
     
 .slide .text-box {
