@@ -237,13 +237,16 @@ figure img {
 }
 
 .slide img {
-    width: 300px;
-    height: auto;
-    border-radius: 10px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
 }
     
 .slide .text-box {
-     padding: 20px;
+    padding: 20px;
     font-size: 1.1rem;
     font-weight: bold;
     width: 50%;
