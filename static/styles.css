@@ -177,7 +177,7 @@ figure img {
   margin-left: auto;
   margin-right: auto;
   width: 60%;
-  }
+}
 
 .exposicion2 img {
     margin-top: 1rem;
@@ -211,68 +211,68 @@ figure img {
     text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.966);
 }
 
-    .carousel-container {
-      width: 80%;
-      margin: 0 auto;
-      overflow: hidden;
-      background-color: rgba(100, 100, 100, 0.3);
-      border-radius: 30px;
-      padding: 20px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.carousel-container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: rgba(100, 100, 100, 0.3);
+    border-radius: 30px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .slide {
-      display: none;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-    }
+.slide {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
 
-    .slide.active {
-      display: flex;
-    }
+.slide.active {
+    display: flex;
+}
 
-    .slide img {
-      width: 300px;
-      height: auto;
-      border-radius: 10px;
-    }
+.slide img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
     
-    .slide .text-box {
-      padding: 20px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      width: 50%;
-      max-width: 800px;
-      text-align: left;
-      text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
-      text-align: justify;
-      color: white;
-    }
+.slide .text-box {
+     padding: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 50%;
+    max-width: 800px;
+    text-align: left;
+    text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0,0,0,0.7);
+    text-align: justify;
+    color: white;
+}
 
-    .arrow.left {
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 60px;
-      cursor: pointer;
-      color: rgb(255, 191, 0);
-    }
+.arrow.left {
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    cursor: pointer;
+    color: rgb(255, 191, 0);
+}
 
-    .arrow.right {
-      right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 60px;
-      cursor: pointer;
-      color: rgb(255, 191, 0);
-    }
+.arrow.right {
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    cursor: pointer;
+    color: rgb(255, 191, 0);
+}
 
-  .aves-section {
+.aves-section {
   width: 50%;
   max-width: 50rem;
   margin: 8rem auto;
