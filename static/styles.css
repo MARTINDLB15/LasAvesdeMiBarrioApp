@@ -372,3 +372,67 @@ figure img {
         padding: 1rem;
     }
 }
+
+@media (max-width: 360px) and (max-height: 780px) {
+    header {
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .intro, .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
+        width: 90%;
+        margin: 2rem auto;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .carousel-container {
+        width: 95%;
+        flex-direction: column;
+    }
+
+    .slide {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .slide img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .slide .text-box {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    .arrow.left,
+    .arrow.right {
+        font-size: 40px;
+        top: 95%;
+        transform: translateY(-50%);
+    }
+
+    .lodelaguia {
+        position: static;
+        width: 90%;
+        margin: 1rem auto;
+    }
+
+    .aves-recurso {
+        padding: 1rem;
+    }
+}
