@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block main %}
+<h2>Registros pendientes</h2>
+{% if pendientes %}
+  {% for reg in pendientes %}
+    <div>
+      <p><strong>Nombre completo:</strong> {{ reg.nombre_completo }}</p>
+      <p><strong>Nombre común:</strong> {{ reg.nombre_comun }}</p>
+      <p><strong>Nombre científico:</strong> <i>{{ reg.nombre_cientifico }}</i></p>
+      <p><strong>Comentario:</strong> {{ reg.comentario }}</p>
+      {% if reg.imagen %}
+        <img src="{{ url_for('static', filename=reg.imagen) }}" width="200">
+      {% endif %}
+      <form method="post">
+        <input type="hidden" name="indice" value="{{ loop.index0 }}">
+        <button type="submit">Eliminar</button>
+        <button type="submit">Aprobar</button>
+      </form>
+      <hr>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No hay registros pendientes.</p>
+{% endif %}
+{% endblock %}

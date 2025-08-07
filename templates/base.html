@@ -10,17 +10,25 @@
     <header>
     <h1>LAS AVES DEL BARRIO PARQUES DE LA ITALIA<br>PALMIRA, COLOMBIA</h1>
     <div class="nav-buttons">
-    <a href="{{ url_for('index') }}" class="nav-btn">Inicio</a>
-    <a href="{{ url_for('guia') }}" class="nav-btn">Guía de avistamiento y registro</a>
+    <a href="{{ url_for('index') }}" class="nav-btn">Inicio</a>    
     <a href="{{ url_for('registro') }}" class="nav-btn">Registra tu avistamiento</a>
-    <a href="{{ url_for('explora') }}" class="nav-btn">Explora los registros</a>
-    <a href="{{ url_for('conoce') }}" class="nav-btn">Conoce más sobre aves</a>
+    <a href="{{ url_for('explora') }}" class="nav-btn">Explora los registros</a>    
 </div>
     </header>
+
     <main>
 {% block main %} {% endblock %}
 </main>
-
+<nav style="display: flex; justify-content: space-between; padding: 1em;">
+    <div>
+        {% if session.get('usuario') == 'admin' %}
+            <span>Hola, Admin</span>
+            <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">🔐</a>
+        {% endif %}
+    </div>
+</nav>
 <footer class="footer">
         <p>&copy; 2025 Las Aves de Mi Barrio - Desarrollado por Martin Londoño Behaine </p>
     </footer>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>Inicio de sesión del administrador</h2>
+<form method="POST">
+    <label>Contraseña:</label>
+    <input type="password" name="password" required>
+    <button type="submit">Iniciar sesión</button>
+</form>
+
+{% if get_flashed_messages() %}
+    <p style="color:red;">{{ get_flashed_messages()[0] }}</p>
+{% endif %}
+{% endblock %}

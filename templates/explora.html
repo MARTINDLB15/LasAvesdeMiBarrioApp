@@ -12,13 +12,19 @@
             <p><strong>Nombre científico:</strong> <i>{{ registro.nombre_cientifico }}</i></p>
             <p><strong>Comentario:</strong> {{ registro.comentario }}</p>
 
-        {% if registro.imagen %}
-        <img src="{{ url_for('static', filename=registro.imagen) }}" alt="Imagen del ave" width="300">
+    {% if registro.imagen %}
+            <img src="{{ url_for('static', filename=registro.imagen) }}" alt="Imagen del ave" width="300">
         {% endif %}
 
-        <form action="{{ url_for('eliminar', indice=loop.index0) }}" method="post">
-            <button class="btn-eliminar" type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</button>
-        </form>
+        {% if session.get('usuario') == 'admin' %}
+            {% if loop.index0 >= total_aprobados %}
+                <form action="{{ url_for('aprobar', indice=loop.index0 - total_aprobados) }}" method="post">
+                    <button type="submit">Aprobar</button>
+                <form action="{{ url_for('eliminar', indice=loop.index0) }}" method="post">
+                    <button class="btn-eliminar" type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</button>
+                </form>
+            {% endif %}
+        {% endif %}
         <hr>
     </div>
     {% endfor %}

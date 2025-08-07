@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: rgb(207, 228, 229);
-    background-image: url("/static/fondo_arbol.png");
+    background-image: url("/static/fondopilotodos.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -27,7 +27,7 @@ header {
     text-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.966);
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    background-image: url("/static/fondo_header.png");
+    background-image: url("/static/fondopilotodosheader.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -59,22 +59,22 @@ main {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2.5rem;
+    gap: 1rem;
     margin-top: 1rem;
 }
 
 .nav-btn {
     display: inline-block;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: bold;
-    text-shadow: 0.125rem 0.125rem 0.3125rem rgb(0, 0, 0);
+    text-shadow: 0.125rem 0.125rem 0.3125rem rgb(40, 41, 40);
     padding: 0.6rem 1.2rem;
     border-radius: 0.5rem;
     text-decoration: none;
     font-size: 1rem;
     white-space: nowrap;
     transition: background-color 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgb(183, 220, 121);
 }
 
 .nav-btn:hover {
