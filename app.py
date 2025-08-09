@@ -111,11 +111,7 @@ def admin_registros():
         cur.execute("SELECT * FROM registros WHERE estado='aprobado'")
         aprobados = cur.fetchall()
 
-        if request.method == 'POST':
-            registro_id = int(request.form.get('indice'))
-            cur.execute("UPDATE registros SET estado='aprobado' WHERE id=?", (registro_id,))
-            conn.commit()
-            return redirect(url_for('admin_registros'))
+
 
     return render_template('admin_registros.html', pendientes=pendientes, aprobados=aprobados)
 
