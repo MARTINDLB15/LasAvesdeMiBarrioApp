@@ -1,7 +1,7 @@
 import os
-import json
-from flask import Flask, render_template, request, redirect, url_for, session, flash
 
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from db import get_connection, init_db
 from werkzeug.utils import secure_filename 
 
 app = Flask(__name__)
@@ -9,24 +9,14 @@ app.secret_key = 'admin123'
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 UPLOAD_FOLDER = 'static/uploads'
-REGISTROS_FILE = 'registros.json'
+
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def allowed_file(filename):
-    return '.' in filename and \
-    filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-def cargar_registros(archivo=REGISTROS_FILE):
-    if os.path.exists(archivo):
-        with open(archivo, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    return []
-
-def guardar_registros(lista, archivo=REGISTROS_FILE):
-    with open(archivo, 'w', encoding='utf-8') as f:
-        json.dump(lista, f, ensure_ascii=False, indent=2)
 
 @app.route('/')
 @app.route('/index')
@@ -49,56 +39,53 @@ def registro():
             imagen.save(ruta_absoluta)
             ruta_imagen = f'uploads/{nombre_archivo}'
 
-        nuevo_registro = {
-            'nombre_completo': nombre_completo,
-            'nombre_comun': nombre_comun,
-            'nombre_cientifico': nombre_cientifico,
-            'comentario': comentario,
-            'imagen': ruta_imagen
-        }
-
-        pendientes = cargar_registros('pendientes.json')
-        pendientes.append(nuevo_registro)
-        guardar_registros(pendientes, 'pendientes.json')
+        with get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute('''
+                    INSERT INTO registros (nombre_completo, nombre_comun, nombre_cientifico, comentario, imagen, estado)
+                    VALUES (%s, %s, %s, %s, %s, 'pendiente')
+                ''', (nombre_completo, nombre_comun, nombre_cientifico, comentario, ruta_imagen))
+                conn.commit()
 
         return redirect(url_for('explora'))
 
-    return render_template ('registro.html')
+    return render_template('registro.html')
 
 @app.route('/explora')
 def explora():
-    registros_aprobados = cargar_registros('aprobados.json')
-    
-    if session.get('usuario') == 'admin':
-        registros_pendientes = cargar_registros('pendientes.json')
-        registros = registros_aprobados + registros_pendientes
-        return render_template('explora.html',
-                               registros=registros,
-                               total_aprobados=len(registros_aprobados))
-    else:
-        return render_template('explora.html', registros=registros_aprobados)
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            if session.get('usuario') == 'admin':
+                cur.execute("SELECT * FROM registros")
+                registros = cur.fetchall()
+                cur.execute("SELECT COUNT(*) FROM registros WHERE estado='aprobado'")
+                total_aprobados = cur.fetchone()['count']
+                return render_template('explora.html', registros=registros, total_aprobados=total_aprobados)
+            else:
+                cur.execute("SELECT * FROM registros WHERE estado='aprobado'")
+                registros = cur.fetchall()
+                return render_template('explora.html', registros=registros)
 
-@app.route('/eliminar/<int:indice>', methods=['POST'])
-def eliminar(indice):
+@app.route('/eliminar/<int:registro_id>', methods=['POST'])
+def eliminar(registro_id):
     if session.get('usuario') != 'admin':
         flash("No autorizado", "error")
         return redirect(url_for('explora'))
 
-    registros = cargar_registros('aprobados.json')
-    if 0 <= indice < len(registros):
-        registros.pop(indice)
-        guardar_registros(registros, 'aprobados.json')
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("DELETE FROM registros WHERE id=%s", (registro_id,))
+            conn.commit()
 
     return redirect(url_for('explora'))
-    
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         password = request.form.get('password')
-        if password == 'admin123':  # Cambia esta contraseña
+        if password == 'admin123':
             session['usuario'] = 'admin'
-            return redirect(url_for('index'))  # Cambia a la ruta principal de tu app
+            return redirect(url_for('index'))
         else:
             flash('Contraseña incorrecta', 'error')
     return render_template('login.html')
@@ -113,33 +100,30 @@ def admin_registros():
     if session.get('usuario') != 'admin':
         return redirect(url_for('login'))
 
-    pendientes = cargar_registros('pendientes.json')
-    aprobados = cargar_registros('aprobados.json')
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT * FROM registros WHERE estado='pendiente'")
+            pendientes = cur.fetchall()
+            cur.execute("SELECT * FROM registros WHERE estado='aprobado'")
+            aprobados = cur.fetchall()
 
-    if request.method == 'POST':
-        indice = int(request.form.get('indice'))
-        registro_aprobado = pendientes.pop(indice)
-        aprobados.append(registro_aprobado)
-
-        guardar_registros(pendientes, 'pendientes.json')
-        guardar_registros(aprobados, 'aprobados.json')
-        return redirect(url_for('admin_registros'))
+            if request.method == 'POST':
+                registro_id = int(request.form.get('indice'))
+                cur.execute("UPDATE registros SET estado='aprobado' WHERE id=%s", (registro_id,))
+                conn.commit()
+                return redirect(url_for('admin_registros'))
 
     return render_template('admin_registros.html', pendientes=pendientes)
 
-@app.route('/aprobar/<int:indice>', methods=['POST'])
-def aprobar(indice):
+@app.route('/aprobar/<int:registro_id>', methods=['POST'])
+def aprobar(registro_id):
     if session.get('usuario') != 'admin':
         return redirect(url_for('login'))
 
-    pendientes = cargar_registros('pendientes.json')
-    aprobados = cargar_registros('aprobados.json')
-
-    if 0 <= indice < len(pendientes):
-        registro = pendientes.pop(indice)
-        aprobados.append(registro)
-        guardar_registros(pendientes, 'pendientes.json')
-        guardar_registros(aprobados, 'aprobados.json')
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("UPDATE registros SET estado='aprobado' WHERE id=%s", (registro_id,))
+            conn.commit()
 
     return redirect(url_for('admin_registros'))
 
