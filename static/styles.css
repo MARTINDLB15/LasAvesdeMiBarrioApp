@@ -317,13 +317,23 @@ figure img {
         font-size: 0.9rem;
     }
 
-    .intro, .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
+    .intro {
         width: 90%;
         margin: 2rem auto;
-        margin-top: 0rem;
+        margin-top: 10rem;
         padding: 1rem;
         font-size: 1rem;
     }
+    
+    
+    .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
+        width: 90%;
+        margin: 2rem auto;
+        margin-top: 5rem;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
 
     .nav-buttons {
         flex-direction: column;
@@ -382,10 +392,19 @@ figure img {
         font-size: 0.9rem;
     }
 
-    .intro, .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
+    .intro {
         width: 90%;
         margin: 2rem auto;
         margin-top: 10rem;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    
+    .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
+        width: 90%;
+        margin: 2rem auto;
+        margin-top: 5rem;
         padding: 1rem;
         font-size: 1rem;
     }
