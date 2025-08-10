@@ -385,7 +385,7 @@ figure img {
     .intro, .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
         width: 90%;
         margin: 2rem auto;
-        margin-top: 0rem;
+        margin-top: 10rem;
         padding: 1rem;
         font-size: 1rem;
     }
