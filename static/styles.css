@@ -319,9 +319,7 @@ figure img {
 
     .intro {
         width: 90%;
-        margin: 10rem auto;
-        padding-right: 10rem;
-        margin-top: 10rem;
+        margin: 10rem auto 0;
         padding: 1rem;
         font-size: 1rem;
     }
@@ -395,8 +393,7 @@ figure img {
 
     .intro {
         width: 95%;
-        margin: 10rem auto;
-        margin-top: 10rem;
+        margin: 10rem auto 0;
         padding: 1rem;
         font-size: 1rem;
     }
