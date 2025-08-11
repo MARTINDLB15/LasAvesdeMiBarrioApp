@@ -15,7 +15,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# Inicializamos la base de datos al arrancar la app
+
 init_db()
 
 @app.route('/')
@@ -23,13 +23,13 @@ init_db()
 def index():
     return render_template('index.html')
 
-@app.route('/registro', methods=['GET', 'POST'])
+@app.route("/registro", methods=["GET", "POST"])
 def registro():
-    if request.method == 'POST':
-        nombre_completo = request.form.get('nombre_completo')
-        nombre_comun = request.form.get('nombre_comun')
-        nombre_cientifico = request.form.get('nombre_cientifico')
-        comentario = request.form.get('comentario')
+    if request.method == "POST":
+        nombre_completo = request.form.get("nombre_completo", "").strip()
+        nombre_comun = request.form.get("nombre_comun", "").strip()
+        nombre_cientifico = request.form.get("nombre_cientifico", "").strip()
+        comentario = request.form.get("comentario", "").strip()
         imagen = request.files.get('imagen')
 
         ruta_imagen = None
@@ -37,19 +37,23 @@ def registro():
             nombre_archivo = secure_filename(imagen.filename)
             ruta_absoluta = os.path.join(UPLOAD_FOLDER, nombre_archivo)
             imagen.save(ruta_absoluta)
+            # Guardamos la ruta relativa para usar con url_for('static')
             ruta_imagen = f'uploads/{nombre_archivo}'
 
-        with get_connection() as conn:
-            cur = conn.cursor()
-            cur.execute('''
-                INSERT INTO registros (nombre_completo, nombre_comun, nombre_cientifico, comentario, imagen, estado)
-                VALUES (%s, %s, %s, %s, %s, 'pendiente')
-            ''', (nombre_completo, nombre_comun, nombre_cientifico, comentario, ruta_imagen))
-            conn.commit()
+        # Guardar en base de datos la ruta_imagen (NO el objeto imagen)
+        conn = get_connection()
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO registros (nombre_completo, nombre_comun, nombre_cientifico, comentario, imagen)
+            VALUES (?, ?, ?, ?, ?)
+        """, (nombre_completo, nombre_comun, nombre_cientifico, comentario, ruta_imagen))
+        conn.commit()
+        conn.close()
 
-        return redirect(url_for('explora'))
+        return redirect(url_for("explora"))
 
-    return render_template('registro.html')
+    return render_template("registro.html")
+    
 
 @app.route('/explora')
 def explora():
