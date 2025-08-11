@@ -43,7 +43,7 @@ def registro():
             cur = conn.cursor()
             cur.execute('''
                 INSERT INTO registros (nombre_completo, nombre_comun, nombre_cientifico, comentario, imagen, estado)
-                VALUES (?, ?, ?, ?, ?, 'pendiente')
+                VALUES (%s, %s, %s, %s, %s, 'pendiente')
             ''', (nombre_completo, nombre_comun, nombre_cientifico, comentario, ruta_imagen))
             conn.commit()
 
