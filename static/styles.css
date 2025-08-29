@@ -328,10 +328,15 @@ figure img {
         text-align: center;
         font-size: 0.9rem;
     }
-
-    .intro, .post1 {
+    .intro {
         width: 90%;
-        margin: 2rem auto 0;  /* Menos espacio arriba */
+        margin: 7rem auto 0;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    .post1 {
+        width: 90%;
+        margin: 3rem auto 0;
         padding: 1rem;
         font-size: 1rem;
     }
@@ -403,18 +408,17 @@ figure img {
     }
 
     .intro {
-        width: 95%;
-        margin: 10rem auto 0;
+        width: 90%;
+        margin: 7rem auto 0;
         padding: 1rem;
         font-size: 1rem;
     }
-    
     .post1 {
-        width: 95%;
-        margin: 10rem auto 0;
+        width: 90%;
+        margin: 3rem auto 0;
         padding: 1rem;
         font-size: 1rem;
-    }  
+    } 
     
     .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
         width: 90%;
