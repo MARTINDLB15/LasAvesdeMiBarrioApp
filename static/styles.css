@@ -118,6 +118,9 @@ main {
 .post1 p {
     max-width: 30rem;
     margin: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
     text-align: justify;
 }
 
@@ -330,7 +333,7 @@ figure img {
     }
     .intro {
         width: 90%;
-        margin: 7rem auto 0;
+        margin: 12rem auto 0;
         padding: 1rem;
         font-size: 1rem;
     }
@@ -409,7 +412,7 @@ figure img {
 
     .intro {
         width: 90%;
-        margin: 7rem auto 0;
+        margin: 12rem auto 0;
         padding: 1rem;
         font-size: 1rem;
     }
@@ -419,7 +422,8 @@ figure img {
         padding: 1rem;
         font-size: 1rem;
     } 
-    
+       
+
     .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
         width: 90%;
         margin: 2rem auto;
