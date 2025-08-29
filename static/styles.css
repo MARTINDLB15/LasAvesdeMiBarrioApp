@@ -81,52 +81,23 @@ main {
     background-color: rgba(100, 100, 100, 0.3);
 }
 
-.intro {
+.intro, .post1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: justify;
-    background-color: rgb(248, 246, 246, 0.8);
+    background-color: rgba(248, 246, 246, 0.8);
     width: 50%;
     max-width: 40rem;
-    padding: 2rem;
-    margin: 8rem auto 0;
-    margin-top: 8rem;
+    padding: 2.5rem; /* consistente */
+    margin: 5rem auto 0;
     border-radius: 2rem;
-    }
-
-section.intro {
-    padding: 2rem;
-    text-align: center;
 }
 
-section.intro p {
+.intro p, .post1 p {
     max-width: 800px;
     margin: auto;
-}
-
-.post1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: justify;
-    background-color: rgb(248, 246, 246, 0.8);
-    width: 50%;
-    max-width: 40rem;
-    padding: 2rem;
-    margin: 0rem auto 0;
-    margin-top: 0rem;
-    border-radius: 2rem;
-    }
-
-section.post1 {
-    padding: 2rem;
-    text-align: center;
-}
-
-section.post1 p {
-    max-width: 800px;
-    margin: auto;
 }
 
 figure {
@@ -337,20 +308,13 @@ figure img {
         font-size: 0.9rem;
     }
 
-    .intro {
+    .intro, .post1 {
         width: 90%;
-        margin: 10rem auto 0;
+        margin: 2rem auto 0;  /* Menos espacio arriba */
         padding: 1rem;
         font-size: 1rem;
     }
-    
-    .post1 {
-        width: 90%;
-        margin: 10rem auto 0;
-        padding: 1rem;
-        font-size: 1rem;
-    }
-        
+
     .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
         width: 90%;
         margin: 2rem auto;
@@ -423,7 +387,8 @@ figure img {
         padding: 1rem;
         font-size: 1rem;
     }
-      .post1 {
+    
+    .post1 {
         width: 95%;
         margin: 10rem auto 0;
         padding: 1rem;
