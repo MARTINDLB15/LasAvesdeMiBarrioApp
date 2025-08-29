@@ -344,7 +344,13 @@ figure img {
         font-size: 1rem;
     }
     
-    
+    .post1 {
+        width: 90%;
+        margin: 10rem auto 0;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+        
     .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
         width: 90%;
         margin: 2rem auto;
@@ -417,7 +423,12 @@ figure img {
         padding: 1rem;
         font-size: 1rem;
     }
-    
+      .post1 {
+        width: 95%;
+        margin: 10rem auto 0;
+        padding: 1rem;
+        font-size: 1rem;
+    }  
     
     .alabriregistro, .exposicion1, .exposicion2, .lodelaguia, .aves-section {
         width: 90%;
