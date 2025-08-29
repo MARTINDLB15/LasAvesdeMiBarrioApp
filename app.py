@@ -52,8 +52,7 @@ def registro():
 
         return redirect(url_for("explora"))
 
-    return render_template("registro.html")
-    
+    return render_template("registro.html")   
 
 @app.route('/explora')
 def explora():
