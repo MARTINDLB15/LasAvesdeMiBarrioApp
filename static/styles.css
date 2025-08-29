@@ -81,7 +81,7 @@ main {
     background-color: rgba(100, 100, 100, 0.3);
 }
 
-.intro, .post1 {
+.intro {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,13 +89,34 @@ main {
     background-color: rgba(248, 246, 246, 0.8);
     width: 50%;
     max-width: 40rem;
-    padding: 2.5rem; /* consistente */
-    margin: 5rem auto 0;
+    padding: 2rem;
+    margin: 7rem auto 0;
+    padding-top: 0rem;
     border-radius: 2rem;
 }
 
-.intro p, .post1 p {
-    max-width: 800px;
+.intro p {
+    max-width: 30rem;
+    margin: auto;
+    text-align: justify;
+}
+
+.post1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    background-color: rgba(248, 246, 246, 0.8);
+    width: 50%;
+    max-width: 40rem;
+    padding: 2rem;
+    margin: 3rem auto 0;
+    padding-top: 0rem;
+    border-radius: 2rem;
+}
+
+.post1 p {
+    max-width: 30rem;
     margin: auto;
     text-align: justify;
 }
