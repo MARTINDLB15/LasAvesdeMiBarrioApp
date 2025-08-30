@@ -126,7 +126,6 @@ main {
   overflow-wrap: break-word;
   word-break: break-all;       
   white-space: normal;         
-  font-size: 0.9rem;
   line-height: 1.4;
 }
 
@@ -339,7 +338,7 @@ figure img {
     }
     .intro {
         width: 90%;
-        margin: 15rem auto 0;
+        margin: 17rem auto 0;
         padding: 1rem;
         font-size: 1rem;
     }
